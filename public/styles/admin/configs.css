@@ -30,4 +30,10 @@ form .item .input textarea {
     font-size: 16px;
 }
 
+/* WARNING RED - IMPORT STUDENTS */
+
+.configs-dashboard .content .warning p strong:first-child {
+    color: red;
+}
+
 

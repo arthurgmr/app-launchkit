@@ -17,7 +17,7 @@ CREATE TABLE `users` (
   `name` text NOT NULL,
   `email` text NOT NULL,
   `role` text NOT NULL,
-  `password` text NOT NULL,
+  `password` text NOT NULL DEFAULT '{XXX}',
   `password_master` text,
   `reset_token` text,
   `reset_token_expires` text
