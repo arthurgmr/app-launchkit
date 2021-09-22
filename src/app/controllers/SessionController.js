@@ -51,19 +51,19 @@ module.exports = {
 
       // send email with recover link
       const mailOptions = {
-        from: 'Merenda Escolar<merenda@edu.muriae.mg.gov.br>',
+        from: 'Merenda Escolar<no-reply@edu.muriae.mg.gov.br>',
         to: user.email,
         subject: "Recuperar Senha | Merenda Escolar",
-        html: `<h2>Você perdeu sua senha?</h2>
+        html: `<h2>Você não sabe a sua senha?</h2>
                 <p>Não se preocupe, clique no link abaixo para criar uma nova senha.</p>
                 <p>
                   <a href="${APP_URL}/session/password-reset?token=${token}" target="_blank">
-                      RECUPERAR SENHA
+                      CRIAR UMA NOVA SENHA
                   </a>
                 </p>
-                <p>Estamos a disposição para qualquer dúvudas.</p>
+                <p>Estamos a disposição para qualquer dúvida.</p>
                 <p> 
-                  Att, </br>
+                  Atenciosamente, </br>
                   Merenda Escolar - SME Muriaé/MG </br>
                   32 3696-3389
                 </p>
