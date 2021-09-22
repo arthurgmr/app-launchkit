@@ -26,29 +26,23 @@ module.exports = {
           name: "Guilherme Saito",
           email: "guilherme@edu.muriae.mg.gov.br",
           role: "admin",
-          password: await hash("sme2124", 8),
           password_master: await hash("atencaonolayout", 8)
         },
         {
           name: "Arlove",
           email: "arlove@edu.muriae.mg.gov.br",
           role: "admin",
-          password: await hash("sme2124", 8),
-          password_master: await hash("XXXXXXX", 8)
         },
         {
           name: "Arthur Machado",
           email: "arthur@edu.muriae.mg.gov.br",
           role: "admin",
-          password: await hash("123", 8),
           password_master: await hash("atencaonolayout", 8)
         },
         {
           name: "Fabiana",
           email: "fabiana@edu.muriae.mg.gov.br",
           role: "admin",
-          password: await hash("sme2124", 8),
-          password_master: await hash("atencaonolayout", 8)
         }
       ]
       
