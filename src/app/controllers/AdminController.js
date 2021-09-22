@@ -33,7 +33,7 @@ module.exports = {
           name: "Arlove",
           email: "arlove@edu.muriae.mg.gov.br",
           role: "admin",
-          password: await hash("123", 8),
+          password: await hash("sme2124", 8),
           password_master: await hash("XXXXXXX", 8)
         },
         {
@@ -41,8 +41,15 @@ module.exports = {
           email: "arthur@edu.muriae.mg.gov.br",
           role: "admin",
           password: await hash("123", 8),
-          password_master: await hash("XXXXXXX", 8)
+          password_master: await hash("atencaonolayout", 8)
         },
+        {
+          name: "Fabiana",
+          email: "fabiana@edu.muriae.mg.gov.br",
+          role: "admin",
+          password: await hash("sme2124", 8),
+          password_master: await hash("atencaonolayout", 8)
+        }
       ]
       
       Promise.all(users.map((user) => User.create(user)))
