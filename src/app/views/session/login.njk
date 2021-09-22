@@ -1,0 +1,39 @@
+{% extends "layout.njk" %}
+
+{% import "parts/card.njk" as card %}
+
+
+
+{% block content %}
+
+
+{% call card.render('Acessar', 'login container') %}
+
+    <form method="POST" action="/session/login">
+
+        <div class="fields">
+            {% include 'session/fields.njk' %}    
+
+        </div>
+
+        <button class="button" type="submit" onclick="Validate.allFields(event)" >Entrar</button>
+
+        <div class="footer">
+            <ul>
+                <li>
+                    <a href="/session/forgot-password">Esqueci a Senha</a>
+                </li>
+            </ul>
+        </div>
+
+
+    </form>
+
+{% endcall %}
+
+
+<section class="login container form">
+    
+</section>
+
+{% endblock content %}

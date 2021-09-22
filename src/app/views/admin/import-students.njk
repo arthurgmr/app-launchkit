@@ -1,0 +1,58 @@
+{% extends "admin/layout-adm.njk" %}
+
+{% import "parts/card.njk" as card %}
+
+{% block content %}
+
+{% call card.render('Importação de Alunos', 'configs-dashboard container') %}
+
+
+<div class="content">
+
+    <form action="/admin/import/students" method="post" enctype="multipart/form-data">
+        <div class="fields">
+            <div class="item">
+                <div>Selecione o arquivo CSV *</div>
+                <div class="input">
+                    <input 
+                        type="file" 
+                        name="file"
+                        single
+                        accept=".csv"
+                    >           
+                </div>
+            </div>
+
+            <div class="item">
+                <div>Orientação</div>
+                <div>
+                    <p>
+                    O arquivo deverá ser do tipo "CSV", contendo apenas as colunas
+                    dos ALUNOS com NOME, DATA DE NASCIMENTO, ESCOLA, COD-TURMA e TURMA.</br></br> 
+                    A tabela <strong>NÃO PODE CONTER TÍTULO!</strong>
+                    </p>    
+                </div>
+            </div>
+
+            <div class="item">
+                <div>Senha Master *</div>
+                <div class="input">
+                    <input 
+                        type="password" 
+                        name="password_master"
+                    >           
+                </div>
+            </div>
+        </div>
+        <div class="buttons">
+            <button class="button" type="submit" onclick="Validate.allFields(event)">Salvar</button>                
+        </div>
+    </form>
+</div>
+
+
+{% endcall %}
+
+
+
+{% endblock content %}

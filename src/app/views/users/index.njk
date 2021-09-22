@@ -1,0 +1,62 @@
+{% extends "layout.njk" %}
+
+{% import "parts/card.njk" as card %}
+
+{% block content %}
+
+{% call card.render('Painel de Controle', 'user-dashboard container') %}
+
+<h4>
+    Olá {{ user.name }}, seja bem-vindo(a). </br></br>
+    Selecione uma turma para iniciar o cadastramento.
+
+</h4>
+
+<div class="content">
+
+    <table width="100%">
+        <thead>
+            <tr>
+                <th>Status</th>
+                <th>Turma</th>
+                <th>Alunos</th>
+                <th>Ação</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for class in classesAndStudents %}
+                <tr>
+                    <td>
+                        {% if class.completed %}
+                            <a class="button-action" href="/users/{{class.class_id}}" title="Visualizar Turma">
+                                <img src="/images/check.svg" alt="Completa">
+                            </a>
+                        {% else %}
+                            <a class="button-action no-check" href="/users/{{class.class_id}}" title="Visualizar Turma">
+                                <img src="/images/no-check.svg" alt="Não Completa">
+                            </a>
+                        {% endif %}
+                    </td>
+                    <td>{{class.class_name}}</td>
+                    <td>{{class.total_students}}</td>
+                    <td>
+                        <a class="button-action" href="/users/{{class.class_id}}" title="Visualizar Turma">
+                            <img src="/images/edit-24.svg" alt="Visualizar Turma">
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+
+
+
+<div class="footer">
+    <p>Dúvidas? Entre em contato pelo e-mail <a href="mailto:merenda@edu.muriae.mg.gov.br">merenda@edu.muriae.mg.gov.br</a>.</p>
+</div>
+
+{% endcall %}
+
+{% endblock content %}

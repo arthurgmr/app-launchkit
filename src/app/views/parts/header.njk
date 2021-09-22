@@ -1,0 +1,45 @@
+<header>
+    <div class="container">
+        
+        <div class="logo">
+            <a href="/"
+            >
+                <img src="/images/logo-pq-5.png" alt="">
+            </a>            
+        </div>
+
+        <nav class="primary">
+            <ul>
+                {% if session.userId %}
+                  <li class="home">
+                    <a href="/">
+                        <i class="material-icons">home</i>
+                    </a>
+                    </li>  
+                {% endif %}
+                
+                <li class="accounts">
+                    <a href="/accounts">
+                        <i class="material-icons">account_circle</i>
+                        Área Restrita
+                    </a>
+                    {% if session.userId %}                    
+                        <ul class="submenu">
+                            <li>
+                                <a href="/"                                   
+                                >Painel de Controle</a>
+                            </li>
+                            <li>
+                                <form action="/session/logout" method="POST">
+                                    <button>Sair</button>
+                                </form>
+                            </li>
+                        </ul>
+                    {% endif %}
+                </li>
+            </ul>
+        </nav>
+
+    </div>
+
+</header>

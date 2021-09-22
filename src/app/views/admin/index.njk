@@ -1,0 +1,31 @@
+{% extends "admin/layout-adm.njk" %}
+
+{% import "parts/card.njk" as card %}
+
+{% block content %}
+
+{% call card.render('Painel de Controle', 'dashboard-admin container') %}
+
+<h4>Olá Administrador(a), seja bem-vindo(a).</h4>
+
+<div class="content">
+
+    <div class="options">
+        <a href="/admin/import/users">Importação de Escolas</a>
+        <a href="/admin/import/students">Importação de Alunos</a>
+
+    </div>
+
+    <div class="options">
+        <a class="disabled" href="/">Relatório por Escola</a>       
+        <a class="disabled" href="/">Relatório Geral</a>       
+    </div>
+
+</div>
+
+
+{% endcall %}
+
+
+
+{% endblock content %}

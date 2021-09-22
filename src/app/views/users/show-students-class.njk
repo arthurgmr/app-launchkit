@@ -1,0 +1,156 @@
+{% extends "layout.njk" %}
+
+
+{% import "parts/card.njk" as card %}
+
+
+{% block content %}
+
+
+{% call card.render('Cadastro Kit Alimentação', 'student-register container') %}
+
+    <form method="POST" action="/users/save?_method=PUT">
+
+        <table width="100%">
+        <thead>
+            <tr>
+                <th>Turma</th>
+                <th>Aluno</th>
+                <th>Data Nasc.</th>
+                <th>Regime</th>
+                <th>Kit Merenda</th>
+                {% if showStudentsOfClass[0].diaper %}
+                    <th>Fralda</th>  
+                {% endif %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for student in showStudentsOfClass %}
+                <tr>
+                    <td>{{ student.class_name }}</td>
+                    <td>{{ student.name }}</td>
+                    <td>{{ student.birth_date }}</td>
+                    <td>
+                        <div class="radio">        
+                            <span>
+                                <input
+                                    id="presential {{ student.id }}" 
+                                    type="radio" 
+                                    name="regime {{ student.id }}" 
+                                    value="Presencial" 
+                                    {% if student.regime =='Presencial'%}
+                                        checked
+                                    {% endif %}
+                                    > 
+                                <label id="presential" for="presential {{ student.id }}">Presencial</label>
+                            </span>
+                        
+                            <span>
+                                <input
+                                    id="hybrid {{ student.id }}" 
+                                    type="radio" 
+                                    name="regime {{ student.id }}" 
+                                    value="Híbrido" 
+                                    {% if student.regime == 'Híbrido'%}
+                                        checked
+                                    {% endif %}
+                                    > 
+                                <label id="hybrid" for="hybrid {{ student.id }}">Híbrido</label>
+                            </span>
+                            <span>
+                                <input
+                                    id="remote {{ student.id }}" 
+                                    type="radio" 
+                                    name="regime {{ student.id }}" 
+                                    value="Remoto" 
+                                    {% if student.regime == 'Remoto' %}
+                                        checked
+                                    {% endif %}
+                                    > 
+                                <label id="remote" for="remote {{ student.id }}">Remoto</label>
+                            </span>
+                        </div>
+
+                        {# <select name="{{ student.id }}">
+                            <option {% if student.regime == 'Presencial' %}selected{% endif %}>
+                                Presencial
+                            </option>
+                            <option {% if student.regime == 'Híbirdo' %}selected{% endif %}>
+                                Híbirdo
+                            </option>
+                            <option {% if student.regime == 'Remoto' or 'undefined' %}selected{% endif %}>
+                                Remoto
+                            </option>                            
+                        </select> #}
+                    </td>
+                    <td>
+                        <div class="radio">        
+                            <span>
+                                <input
+                                    id="launchkit_yes_{{ student.id }}" 
+                                    type="radio" 
+                                    name="launchkit {{ student.id }}" 
+                                    value="Sim" 
+                                    {% if student.launchkit === 'Sim'%}
+                                        checked
+                                    {% endif %}
+                                    > 
+                                <label id="launchkit_yes" for="launchkit_yes_{{ student.id }}">Sim</label>
+                            </span>
+                        
+                            <span>
+                                <input
+                                    id="launchkit_no_{{ student.id }}" 
+                                    type="radio" 
+                                    name="launchkit {{ student.id }}" 
+                                    value="Não" 
+                                    {% if student.launchkit === 'Não' %}
+                                        checked
+                                    {% endif %}
+                                    > 
+                                <label id="launchkit_no" for="launchkit_no_{{ student.id }}">Não</label>
+                            </span>
+                        </div>
+                        {# <select name="{{ student.id }}">
+                            <option {% if student.launchkit == 'Sim' %}selected{% endif %}>
+                                Sim
+                            </option>
+                            <option {% if student.launchkit == 'Não' or 'undefined' %}selected{% endif %}>
+                                Não
+                            </option>                        
+                        </select> #}
+                    </td>
+                    {% if student.diaper %}
+                        <td>
+                        <select name="diaper_size {{ student.id }}">
+                            <option value="" selected>Não optou</option>
+                            <option {% if student.diaper_size == 'M' %}selected{% endif %}>
+                                M
+                            </option>
+                            <option {% if student.diaper_size == 'G' %}selected{% endif %}>
+                                G
+                            </option>
+                            <option {% if student.diaper_size == 'GG' %}selected{% endif %}>
+                                GG
+                            </option>
+                            <option {% if student.diaper_size == 'XXG' %}selected{% endif %}>
+                                XXG
+                            </option>                               
+                        </select>
+                    </td>
+                    {% endif %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+        <div class="footer">
+            <p>As informações de alunos e turmas são migradas do SisLAME.</br>
+            Qualquer dúvida entre em contato pelo e-mail <a href="mailto:merenda@edu.muriae.mg.gov.br">merenda@edu.muriae.mg.gov.br</a>.</p>
+            <button class="button class" type="submit" onclick="Validate.allFields(event)">Salvar</button>
+        </div>
+    </form>
+
+{% endcall %}
+
+{% endblock content %}
