@@ -1,0 +1,69 @@
+.card.search-admin {
+    width: 70%;
+}
+
+.search-admin .search-bar form{
+    display: grid;
+    grid-template-columns: 80% 1fr;
+    grid-gap: 8px;
+    align-items: center;
+}
+
+.search-admin .search-bar input {
+    padding: 11px 16px;
+}
+
+.search-admin .content table {
+    margin-top: 8px;
+    border-spacing: 0;
+}
+
+.search-admin .content table tr {
+    text-align: left;
+}
+
+.search-admin .content table tr th {
+    text-transform: uppercase;
+    font-size: 14px;
+    color: #77777F;
+    padding: 6px 0;
+}
+
+.search-admin .content table tr td {
+    padding: 8px 0;
+    border-bottom: 1px solid #e7e7e7
+}
+
+.search-admin .content table tr:last-child td {
+    border-bottom: none;
+}
+
+.search-admin .content table tr td .action {
+    background: #FCFDFF;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.search-admin .content table tr td .action .button-action {
+    background: #FCFDFF;
+    border: 1px solid #E1E3E6;
+    border-radius: 4px;
+    padding: 0;
+    height: 35px;
+    width: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 200ms;
+    
+}
+
+.search-admin .content table tr td .action .button-action:hover {
+    background: #F0F2F5;
+}
+
+.search-admin .content table tr td .action .button-action.delete {
+    margin-left: 8px;
+    cursor: pointer;
+}

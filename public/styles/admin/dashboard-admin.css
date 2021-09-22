@@ -1,0 +1,140 @@
+/* DASHBOARD ADMIN */
+
+.dashboard-admin h4,
+.configs-dashboard h4 {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.dashboard-admin .content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+    margin: 20px 0;
+    /* align-items: center; */
+}
+
+/* buttons/a link options */
+.dashboard-admin .content .options a {
+
+    background-color: var(--primary-color);
+    color: white;
+
+    display: block;
+    margin: 16px 0px;
+    padding: 12px 16px;
+
+    width: 100%;
+    border-radius: 4px;
+
+    /* para colocar o botao para baixo */
+    align-self: end;
+
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 16px;
+    text-align: center;
+
+    cursor: pointer;
+
+    transition: all 0.2s;
+}
+
+.dashboard-admin .content .options a.disabled {
+    background-color: lightgrey;
+    pointer-events: none;
+}
+
+.dashboard-admin .content .options a:hover,
+.user-admin-edit a:hover {
+    background-color: var(--third-color);
+}
+
+/* dashboard choose subscribers */
+.dashboard-admin .choose-classif {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.dashboard-admin .choose-classif a {
+    background-color: #f5f5f5;
+    list-style: none;
+    border: 2px solid #f5f5f5;
+    border-radius: 8px;
+    height: 180px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+    text-decoration: none;
+
+    color: #18286B;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.dashboard-admin .choose-classif a:hover {
+    background-color: #e2e7fd;
+    border: 2px solid #18286B;
+}
+
+/* div subscribers */
+.dashboard-admin .content .subscribers {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dashboard-admin .content .subscribers p {
+    font-size: 16px;
+    text-transform: uppercase;
+
+    font-weight: bold;
+    color: var(--primary-color);
+
+    margin-bottom: 12px;
+}
+
+.dashboard-admin .content .subscribers div {
+
+    background-color: var(--secundary-color);
+    width: 80px;
+    height: 80px;
+    border-radius: 100px;
+
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    box-shadow: 0px 4px 8px -4px rgb(0, 0, 0, .6);
+
+}
+
+.dashboard-admin .content .subscribers div p {
+
+    font-size: 20px;
+    position: absolute;
+    margin: 0;
+
+}
+
+.dashboard-admin .footer a{
+    color: var(--primary-color);
+}
+
+
+
+
+
+
+
+
+
