@@ -9,8 +9,9 @@ const db = mariadb.createPool({
     user: process.env.USER_DB,
     password: process.env.PASSWORD,
     database: process.env.DATABASE,
-    connectTimeout: 60000,
-    
+    connectTimeout  : 60 * 60 * 1000,
+    acquireTimeout  : 60 * 60 * 1000,
+    timeout         : 60 * 60 * 1000
 })
 
 //connect and check for errors
