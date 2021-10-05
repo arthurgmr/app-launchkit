@@ -157,7 +157,11 @@ module.exports = {
 
         // check student exists;
         let student
-        students ? student = students.find((student) => student.name === name) : null;
+        students 
+          ? student = students.find((student) => 
+            student.name === name && 
+            student.birth_date === studentImport.birth_date) 
+          : null;
 
         if (!student) {
 
