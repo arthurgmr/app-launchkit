@@ -18,7 +18,7 @@ routes.get('/import/students', AdminController.indexImportStudents)
 routes.post('/import/students', upload.single("file"), AdminController.importStudents)
 
 
-// routes.get('/reports/all', AdminController.importStudents)
+// routes.get('/reports/launchkit', AdminController.reportsLaunchKit)
 // routes.get('/reports', AdminController.reportsBySchools)
 
 

@@ -8,13 +8,19 @@
 
 
 {% call card.render('Cadastro Kit Alimentação', 'student-register container') %}
+    <div class="menu-bar">
+        <h4>{{showStudentsOfClass[0].class_name}}</h4>
+        <a class="button-print" href="/users/print/{{showStudentsOfClass[0].class_id}}" target="_blank" title="Imprimir Turma">
+            <i class="material-icons">printer</i>         
+        </a>     
+    </div>
 
     <form method="POST" action="/users/save?_method=PUT">
 
         <table width="100%">
         <thead>
             <tr>
-                <th>Turma</th>
+                {# <th>Turma</th> #}
                 <th>Aluno</th>
                 <th>Data Nasc.</th>
                 <th>Regime</th>
@@ -27,7 +33,7 @@
         <tbody>
             {% for student in showStudentsOfClass %}
                 <tr>
-                    <td>{{ student.class_name }}</td>
+                    {# <td>{{ student.class_name }}</td> #}
                     <td>{{ student.name }}</td>
                     <td>{{ student.birth_date }}</td>
                     <td>
@@ -70,18 +76,6 @@
                                 <label id="remote" for="remote {{ student.id }}">Remoto</label>
                             </span>
                         </div>
-
-                        {# <select name="{{ student.id }}">
-                            <option {% if student.regime == 'Presencial' %}selected{% endif %}>
-                                Presencial
-                            </option>
-                            <option {% if student.regime == 'Híbirdo' %}selected{% endif %}>
-                                Híbirdo
-                            </option>
-                            <option {% if student.regime == 'Remoto' or 'undefined' %}selected{% endif %}>
-                                Remoto
-                            </option>                            
-                        </select> #}
                     </td>
                     <td>
                         <div class="radio">        
@@ -111,14 +105,6 @@
                                 <label id="launchkit_no" for="launchkit_no_{{ student.id }}">Não</label>
                             </span>
                         </div>
-                        {# <select name="{{ student.id }}">
-                            <option {% if student.launchkit == 'Sim' %}selected{% endif %}>
-                                Sim
-                            </option>
-                            <option {% if student.launchkit == 'Não' or 'undefined' %}selected{% endif %}>
-                                Não
-                            </option>                        
-                        </select> #}
                     </td>
                     {% if student.diaper %}
                         <td>
@@ -145,8 +131,9 @@
     </table>
 
         <div class="footer">
-            <p>As informações de alunos e turmas são migradas do SisLAME.</br>
-            Qualquer dúvida entre em contato pelo e-mail <a href="mailto:merenda@edu.muriae.mg.gov.br">merenda@edu.muriae.mg.gov.br</a>.</p>
+            <p>TURMA: <strong>{{showStudentsOfClass[0].class_name}}</strong></br></br>
+            As informações de alunos e turmas são migradas do SisLAME.</br>
+            Qualquer dúvida entre em contato pelo e-mail <a href="mailto:arlove@edu.muriae.mg.gov.br">arlove@edu.muriae.mg.gov.br</a>.</p>
             <button class="button class" type="submit" onclick="Validate.allFields(event)">Salvar</button>
         </div>
     </form>

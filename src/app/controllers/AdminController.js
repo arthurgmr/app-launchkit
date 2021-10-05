@@ -108,8 +108,11 @@ module.exports = {
       })
 
 
-    } catch (err) {
-      console.log(err);
+    }  catch (err) {
+      console.log(err)
+      return res.render("admin/import-users", {
+        error: "Algo de errado aconteceu."
+      })
     }
   },
 
@@ -151,6 +154,7 @@ module.exports = {
         const name = studentImport.name.replace(/'/g, "")
         // get school;
         const school = await User.findOne({ where: { name: studentImport.school }})
+
         // check student exists;
         let student
         students ? student = students.find((student) => student.name === name) : null;
@@ -161,6 +165,7 @@ module.exports = {
             name: studentImport.name.replace(/'/g, ""),
             birth_date: studentImport.birth_date,
             user_id: school.id,
+            stage: studentImport.stage,
             class_id: studentImport.classes_id,
             class_name: studentImport.classes,
             regime: undefined,
@@ -173,6 +178,7 @@ module.exports = {
           await Student.update(student.id, {
             birth_date: studentImport.birth_date,
             user_id: school.id,
+            stage: studentImport.stage,
             class_id: studentImport.classes_id,
             class_name: studentImport.classes
           })
@@ -196,13 +202,23 @@ module.exports = {
 
 
     } catch (err) {
-      console.log(err);
+      console.log(err)
+      return res.render("admin/import-students", {
+        error: "Algo de errado aconteceu."
+      })
     }
 
-  }
+  },
 
-  // Reports By School
-  // async reportsBySchools(req, res) {
+  // Reports Launch Kit
+  // async reportsLaunchKit(req, res) {
+
+  //   const dataInfant = await Student.getQuantityInfant()
+  //   const dataFundamental = await Student.getQuantityFundamental()
+  //   const dataEJAPROEJA = await Student.getQuantityEJAPROEJA()
+
+  //   //
+
   // }
 }
 
@@ -245,11 +261,12 @@ function loadStudentsFile (file) {
 
     parseFile
       .on('data', async (line) => {
-        const [name, birth_date, school, classes_id, classes] = line
+        const [name, birth_date, school, stage, classes_id, classes] = line
         users.push({
           name,
           birth_date,
           school,
+          stage,
           classes_id,
           classes
         })

@@ -1,3 +1,4 @@
+const { date } = require("../../lib/utils")
 
 const Student = require('../models/Student');
 
@@ -21,15 +22,41 @@ module.exports = {
             const { user } = req
             const { class_id } = req.params
 
-            //provisory
-            const sameStudent = await Student.findOne({ where: { class_id }})
-
-            const showStudentsOfClass = await Student.showStudentsOfClass(user.id, sameStudent.class_name)
+            const showStudentsOfClass = await Student.showStudentsOfClass(user.id, class_id)
 
             return res.render("users/show-students-class", { showStudentsOfClass })
 
         } catch (err) {
+            console.log(err)
+            // return res.render("user/import-users", {
+            //     error: "Algo de errado aconteceu."
+            // })
+        }
+    },
+
+    async printStudentsOfClass(req, res) {
+        try {
+
+            const { user } = req
+            const { class_id } = req.params
+
+            const dataPrint = await Student.printStudentsOfClass(user.id, class_id)
+
+            if(!dataPrint[0]) {
+                return res.render("users/index", {
+                    user,
+                    classesAndStudents: await Student.getClassesAndStudentsQuantity(user.id),
+                    error: "Nenhum aluno informado no Kit Merenda."
+                })
+            }
+
+            const dateNow = date(Date.parse(new Date())).formatTotal
+
+            return res.render("users/print-class", { user, dataPrint, dateNow })
+
             
+        } catch (err) {
+            console.log(err)
         }
     },
 

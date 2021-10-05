@@ -36,6 +36,17 @@
 
 }
 
+.user-dashboard .content table tr td:last-child {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.user-dashboard .content table tr td:last-child a:last-child i {
+    color: #77777F;
+    width: 25px;
+    height: 25px;
+} 
+
 .user-dashboard .content table tr th {
     text-transform: uppercase;
     font-size: 18px;
@@ -105,6 +116,24 @@
 
 /* STUDENTS OF CLASS */
 
+.student-register .menu-bar {
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.student-register h4 {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--primary-color);
+}
+
+.student-register .menu-bar a {
+    margin: 0;
+    color: var(--third-color);
+}
+
+
 .card.student-register.container {
     width: 100%;
     max-width: 1200px;
@@ -136,7 +165,7 @@
 
 .student-register table tr td {
     padding: 8px 0;
-    border-bottom: 1px solid #e7e7e7
+    border-bottom: 1px solid #e7e7e7;
 }
 
 .student-register table tr:last-child td {
@@ -144,6 +173,52 @@
 }
 
 /* INPUT RADIO REGIME */
+
+.student-register table tr td:nth-child(3) .radio {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.student-register table tr td:nth-child(3) input[type="radio"]{
+    display: none;
+    
+}
+
+.student-register table tr td:nth-child(3) label {
+    position: relative;
+    border: 1px solid #b6b6b6;
+    border-radius: 4px;
+    padding: 8px 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.student-register table tr td:nth-child(3) label:before {
+    content: "";
+    height: 30px;
+    width: 30px;
+}
+
+.student-register table tr td:nth-child(3) input[type="radio"]:checked + label[id="presential"] {
+    background-color: rgb(157, 255, 157);
+    border: 1px solid rgb(157, 255, 157);
+    color: black;
+}
+
+.student-register table tr td:nth-child(3) input[type="radio"]:checked + label[id="hybrid"] {
+    background-color: rgb(255, 255, 137);
+    border: 1px solid rgb(255, 255, 137);
+    color: black;
+}
+
+.student-register table tr td:nth-child(3) input[type="radio"]:checked + label[id="remote"]{
+    background-color: rgb(255, 138, 138);
+    border: 1px solid rgb(255, 138, 138);
+    color: black;
+}
+
+/* INPUT RADIO LAUNCHKIT */
 
 .student-register table tr td:nth-child(4) .radio {
     margin-top: 10px;
@@ -171,59 +246,13 @@
     width: 30px;
 }
 
-.student-register table tr td:nth-child(4) input[type="radio"]:checked + label[id="presential"] {
-    background-color: rgb(157, 255, 157);
-    border: 1px solid rgb(157, 255, 157);
-    color: black;
-}
-
-.student-register table tr td:nth-child(4) input[type="radio"]:checked + label[id="hybrid"] {
-    background-color: rgb(255, 255, 137);
-    border: 1px solid rgb(255, 255, 137);
-    color: black;
-}
-
-.student-register table tr td:nth-child(4) input[type="radio"]:checked + label[id="remote"]{
-    background-color: rgb(255, 138, 138);
-    border: 1px solid rgb(255, 138, 138);
-    color: black;
-}
-
-/* INPUT RADIO LAUNCHKIT */
-
-.student-register table tr td:nth-child(5) .radio {
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-.student-register table tr td:nth-child(5) input[type="radio"]{
-    display: none;
-    
-}
-
-.student-register table tr td:nth-child(5) label {
-    position: relative;
-    border: 1px solid #b6b6b6;
-    border-radius: 4px;
-    padding: 8px 8px;
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: 400;
-}
-
-.student-register table tr td:nth-child(5) label:before {
-    content: "";
-    height: 30px;
-    width: 30px;
-}
-
-.student-register table tr td:nth-child(5) input[type="radio"]:checked + label[id="launchkit_yes"] {
+.student-register table tr td:nth-child(4) input[type="radio"]:checked + label[id="launchkit_yes"] {
     background-color: var(--third-color);
     border: 1px solid var(--third-color);
     color: white;
 }
 
-.student-register table tr td:nth-child(5) input[type="radio"]:checked + label[id="launchkit_no"] {
+.student-register table tr td:nth-child(4) input[type="radio"]:checked + label[id="launchkit_no"] {
     background-color: #e0c188;
     border: 1px solid #e0c188;
     color: black;
@@ -231,7 +260,7 @@
 
 /* INPUT SELECT DIAPER_SIZE */
 
-.student-register table tr td:nth-child(6) select {
+.student-register table tr td:nth-child(5) select {
     padding: 5px;
     background-color: white;
     align-items: center;

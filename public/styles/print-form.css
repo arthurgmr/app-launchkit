@@ -43,7 +43,7 @@ footer {
 footer {
     color: #A5A5A5;
     padding: 24px 0;
-    font-size: 14px;
+    font-size: 9px;
 }
 
 header, footer {
@@ -96,10 +96,10 @@ header div.container a {
     height: 950px;
 }
 
-/* FORM */
+/* CONTENT */
 
 section .sub-title h4 {
-    font-size: 12px;
+    font-size: 14px;
     line-height: 24px;
     text-transform: uppercase;
 
@@ -107,69 +107,58 @@ section .sub-title h4 {
     color: var(--secundary-color);
     border-bottom: 1px solid #eee;
 
-    margin-top: 2px;
-    margin-bottom: 4px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 section .item {
     margin-bottom: 10px;
 }
 
-section .item > div:nth-child(1){
+section .item > div:nth-child(1),
+section .item p {
     color: #777;
     text-transform: uppercase;
-    font-size: 10px;
+    font-size: 12px;
     font-weight: bold;
     margin-bottom: 6px;
 }
 
-section .item .input {
-    width: 100%;
-
-    padding: 4px 8px;
-
-    box-shadow: 2px 2px 2px -4px rgb(60, 60, .9);
-
-    border: 1px solid #d1d1d1;
-    border-radius: 4px;
-
-    font-size: 10px;
+section .item p {
+    margin-bottom: 0px;
 }
 
-section .item .radio {
-    font-size: 12px;
-    display:flex;
-    flex-direction: row;
-}
+/* TABLE */
 
-section .item .radio span  {
-    display: flex;
-    flex-direction: row;
-}
-
-section .item .radio span label {
-  margin: 0 5px;
-}
-
-section .grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 0px 16px;
-}
-
-section .authentication .input p {
-    font-size: 10px;
-    text-align: justify; 
-}
-
-section .authentication .input p:first-child {
-    margin-bottom: 10px;
-}
-
-section .authentication .input p:last-child {
-    font-size: 10px;
+section .item table {
     margin-top: 20px;
-    margin-bottom: 8px;
-    border-top: 1px solid #d1d1d1;
+    margin-bottom: 20px;
+    border-spacing: 0;
+}
+
+section .item table tr {
+    text-align: left;
+}
+
+section .item table tr th:last-child,
+    section .item table tr td:last-child {
+    text-align: center;
+}
+
+section .item table tr th {
+    text-transform: uppercase;
+    font-size: 12px;
+    color: #77777F;
+    padding: 6px 0;
+}
+
+section .item table tr:last-child td {
+    border-bottom: none;
+}
+
+section .item table tr td {
+    padding: 8px 0;
+    border-bottom: 1px solid #e7e7e7;
+    font-size: 12px;
 }
 

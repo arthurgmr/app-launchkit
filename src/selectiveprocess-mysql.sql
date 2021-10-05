@@ -51,3 +51,7 @@ CREATE TABLE session(
 -- ALTER SEQUENCE products_id_seq RESTART WITH 1;
 -- ALTER SEQUENCE users_id_seq RESTART WITH 1;
 -- ALTER SEQUENCE files_id_seq RESTART WITH 1;
+
+
+ALTER TABLE students
+ADD COLUMN stage varchar(255);

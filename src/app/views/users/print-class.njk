@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+        <link rel="stylesheet" href="/styles/print-form.css">
+
+        <title>Relatório da Turma {{dataPrint[0].class_name}}</title>             
+        
+    </head>
+
+    <body onload="window.print()">
+        <header>
+            <div class="container">
+                <div class="logo">
+                    <a href="/">
+                        <img src="/images/logo-pq-5.png" alt="">
+                    </a>  
+                </div>
+                <div class="title">
+                    <h3>
+                        {{user.name}}</br>
+                        Kit Merenda - Turma: {{dataPrint[0].class_name}}
+                    </h3>
+                </div>
+            </div>
+            
+        </header>
+        <section class="content container">
+            
+            <div class="sub-title">
+                <h4>Listagem da Turma {{dataPrint[0].class_name}}</h4>
+            </div>            
+            <div class="item">
+                <p>
+                    O relatório demonstra somente os alunos que optaram para 
+                    o recebimento de Kit Merenda no regime Híbrido e Remoto.
+                    E nos casos de BI e BII são demonstrados os tamanhos de fralda.
+                </p>
+                <table width="100%">
+                    <thead>
+                        <tr>
+                            {# <th>Turma</th> #}
+                            <th>Aluno</th>
+                            {# <th>Data Nasc.</th> #}
+                            <th>Regime</th>
+                            {% if dataPrint[0].diaper %}
+                                <th>Fralda</th>  
+                            {% endif %}
+                            <th>Assinatura Responsável</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for student in dataPrint %}
+                            <tr>
+                                {# <td>{{ student.class_name }}</td> #}
+                                <td>{{ student.name }}</td>
+                                {# <td>{{ student.birth_date }}</td> #}
+                                <td>{{ student.regime }}</td>
+                                {% if student.diaper %}
+                                    <td>{{ student.diaper_size }}</td>
+                                {% endif %}
+                                <td></td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="sub-title">
+                <h4>Observação</h4>
+            </div>
+            <div class="item">
+                <p>
+                No momento da entrega oriente o responsável a assinar atestando o recebimento. 
+                Se na decorrência de três entregas o mesmo responsável não buscar o Kit, ele deverá ser removido do benefício.
+                </p><br/>
+                <p>Realtório gerado  em: {{dateNow}}.</p>
+            </div>
+
+        </section>
+        <footer>
+            <p>Av. Maestro Sansão, 236 - Centro, Muriaé/MG - 1º Andar - Tel.: (32) 3729-1233 - E-mail: educacao@muriae.mg.gov.br</p>
+        </footer>
+
+        <script src="/scripts.js"></script>
+    </body>
+
+
+
+
+</html>

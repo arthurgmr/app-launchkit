@@ -29,6 +29,8 @@ module.exports = {
 
         const minutes = date.getMinutes()
 
+        const seconds = date.getSeconds()
+
         return {
             day,
             month,
@@ -37,7 +39,8 @@ module.exports = {
             minutes,
             iso: `${year}-${month}-${day}`, // retorno tipo iso
             birthDay: `${day}/${month}`,
-            format: `${day}/${month}/${year}`
+            format: `${day}/${month}/${year}`,
+            formatTotal: `${day}/${month}/${year} às ${hour}:${minutes}:${seconds} `
         }
     },
 /*  Função para converter em moeda; */
