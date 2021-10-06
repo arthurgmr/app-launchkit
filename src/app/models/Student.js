@@ -8,8 +8,9 @@ module.exports = {
 
     async getClassesAndStudentsQuantity(id) {
         const results = await db.query(`
-        SELECT students.class_name, students.class_id, students.regime,
-        IF(students.regime = 'undefined', false, true) AS completed,	
+        SELECT students.class_name, students.class_id,
+			COUNT(IF(students.regime = "undefined", 1, NULL)) AS total_regime_NULL,
+            COUNT(IF(students.launchkit = "undefined", 1, NULL)) AS total_launchkit_NULL,
             COUNT(*) AS total_students
         FROM students
         WHERE students.user_id = ?

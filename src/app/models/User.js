@@ -60,6 +60,26 @@ module.exports = {
             ORDER BY users.name
         `)
         return results
+    },
+
+    async getQuantityDiaperSize() {
+        const results = await db.query(`
+        SELECT users.id, users.name,
+            COUNT(IF(diaper_size = "M" AND launchkit = "Sim", 1, NULL)) AS total_M,
+            COUNT(IF(diaper_size = "G" AND launchkit = "Sim", 1, NULL)) AS total_G,
+            COUNT(IF(diaper_size = "GG" AND launchkit = "Sim", 1, NULL)) AS total_GG,
+            COUNT(IF(diaper_size = "XXG" AND launchkit = "Sim", 1, NULL)) AS total_XXG
+        FROM users
+            LEFT JOIN students ON (students.user_id = users.id)
+        WHERE users.role = "user" 
+            AND stage NOT LIKE "Educação Infantil - Pré-escola"
+            AND stage NOT LIKE "ENSINO FUNDAMENTAL DE 9 ANOS"
+            AND stage NOT LIKE "PRESENCIAL - ENSINO FUNDAMENTAL - PROEJA FIC"
+            AND stage NOT LIKE "PRESENCIAL - ENSINO FUNDAMENTAL"
+        GROUP BY users.name
+        ORDER BY users.name
+        `)
+        return results
     }
 
 }
