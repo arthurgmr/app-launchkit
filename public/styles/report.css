@@ -1,0 +1,165 @@
+
+:root {
+    --primary-color: #18286B;
+    --secundary-color: #D4AF68;
+    --third-color: #5c689e;
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    text-decoration: none;
+    list-style-type: none;
+    border: none;
+}
+
+html, body {
+    height: 1000px;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    width: 711px;
+    max-width: 790px;
+    margin: 0 auto;
+}
+
+footer {
+    margin-top: auto;
+}
+
+/* HEADER AND FOOTER */
+
+footer {
+    color: #A5A5A5;
+    padding: 24px 0;
+    font-size: 9px;
+}
+
+header, footer {
+    background-color: white;
+    
+    width: 100%;
+    text-align: center;
+}
+
+header h3{
+    text-align: right;
+    font-size: 16px;
+    line-height: 24px;
+    text-transform: uppercase;
+
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+header div.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header div.container a {
+    justify-self: start;
+}
+
+/* LOGO */
+
+.logo img {
+    object-fit: contain;
+    width: 200px;
+    height: 72px;
+}
+
+/* CONTENT */
+
+/* .content {
+    background-color: white;
+
+    padding: 6px 12px;
+    margin: 8px auto;
+
+    box-shadow: 0px 4px 8px -4px rgb(0, 0, 0, .6);
+    border-radius: 4px;
+
+    width: 690px;
+    height: 950px;
+} */
+
+/* CONTENT */
+
+section .sub-title h4 {
+    font-size: 14px;
+    line-height: 24px;
+    text-transform: uppercase;
+
+    font-weight: bold;
+    color: var(--secundary-color);
+    border-bottom: 1px solid #eee;
+
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+section .item {
+    /* margin-bottom: 10px; */
+}
+
+section .item > div:nth-child(1),
+section .item table tr:last-child td,
+section .item p {
+    color: #777;
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
+section .item p {
+    margin-bottom: 0px;
+}
+
+/* TABLE */
+
+section .item table {
+    /* margin-top: 20px; */
+    /* margin-bottom: 20px; */
+    border-spacing: 0;
+}
+
+section .item table tr th:first-child,
+section .item table tr td:first-child {
+    text-align: left;
+}
+
+ section .item table tr td{
+    text-align: center;
+}
+
+section .item table tr th {
+    text-transform: uppercase;
+    font-size: 13px;
+    color: #77777F;
+    padding: 4px 0;
+}
+
+section .item table tr:last-child td {
+    border-bottom: none;
+}
+
+section .item table tr td {
+    padding: 4px 0;
+    border-bottom: 1px solid #e7e7e7;
+    font-size: 12px;
+}
+

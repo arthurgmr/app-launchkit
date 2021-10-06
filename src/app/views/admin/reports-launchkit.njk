@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+        <link rel="stylesheet" href="/styles/report.css">
+
+        <title>Relatório Kit Merenda - {{dataReport[dataReport.length - 1].report}}</title>             
+        
+    </head>
+    {# onload="window.print()" #}
+    <body onload="window.print()">
+        <header>
+            <div class="container">
+                <div class="logo">
+                    <a href="/">
+                        <img src="/images/logo-pq-5.png" alt="">
+                    </a>  
+                </div>
+                <div class="title">
+                    <h3>
+                        Relatório Kit Merenda</br>
+                        {{dataReport[dataReport.length - 1].report}}
+                    </h3>
+                </div>
+            </div>
+            
+        </header>
+        <section class="content container">
+            
+            <div class="sub-title">
+                <h4>Quantitativo por Escola</h4>
+            </div>            
+            <div class="item">
+                <table width="100%">
+                    <thead>
+                        <tr>
+                            <th>Escola</th>
+                            <th>Presencial</th>                            
+                            <th>Híbrido</th>                              
+                            <th>Remoto</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for school in dataReport %}
+                            <tr>
+                                <td>{{ school.name }}</td>
+                                <td>{{ school.total_present }}</td>
+                                <td>{{ school.total_hybrid }}</td>
+                                <td>{{ school.total_remote }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="sub-title">
+                <h4>Observação</h4>
+            </div>
+            <div class="item">
+                <p>
+                OS QUANTITATIVOS DEMONSTRADOS NA COLUNA DE  HÍBRIDO E REMOTO SÃO APENAS DE ALUNOS QUE 
+                OPTARAM PARA O RECEBIMENTO DO KIT MERENDA.
+                </p><br/>
+                <p>Relatório gerado  por {{user.name}} em {{dateNow}}.</p>
+            </div>
+
+        </section>
+        <footer>
+            <p>Av. Maestro Sansão, 236 - Centro, Muriaé/MG - 1º Andar - Tel.: (32) 3729-1233 - E-mail: educacao@muriae.mg.gov.br</p>
+        </footer>
+
+        <script src="/scripts.js"></script>
+    </body>
+
+
+
+
+</html>
