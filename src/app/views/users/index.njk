@@ -27,7 +27,7 @@
             {% for class in classesAndStudents %}
                 <tr>
                     <td>
-                        {% if class.completed %}
+                        {% if class.total_regime_NULL == 0 and class.total_launchkit_NULL == 0 %}
                             <a class="button-action" href="/users/{{class.class_id}}" title="Visualizar Turma">
                                 <img src="/images/check.svg" alt="Completa">
                             </a>
