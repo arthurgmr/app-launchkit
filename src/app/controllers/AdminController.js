@@ -2,6 +2,7 @@ const { hash } = require("bcryptjs")
 const { compare } = require('bcryptjs')
 const fs = require("fs")
 const csvParse = require("csv-parse")
+const { date } = require("../../lib/utils")
 
 
 const User = require("../models/User")
@@ -215,15 +216,113 @@ module.exports = {
   },
 
   // Reports Launch Kit
-  // async reportsLaunchKit(req, res) {
+  async reportsInfant(req, res) {
 
-  //   const dataInfant = await Student.getQuantityInfant()
-  //   const dataFundamental = await Student.getQuantityFundamental()
-  //   const dataEJAPROEJA = await Student.getQuantityEJAPROEJA()
+    try {
+      const { user } = req
 
-  //   //
+      const dataReport = await User.getQuantityInfant()
 
-  // }
+      let total = {
+        report: 'Educação Infantil',
+        name: 'TOTAL',
+        total_remote: 0,
+        total_hybrid: 0,
+        total_present: 0
+      }
+      
+      dataReport.forEach((element) => {
+        total.total_remote += element.total_remote
+        total.total_hybrid += element.total_hybrid
+        total.total_present += element.total_present
+      })
+
+      dataReport.push(total)
+
+      const dateNow = date(Date.parse(new Date())).formatTotal
+
+      return res.render("admin/reports-launchkit", { user, dateNow, dataReport })
+
+    } catch (err) {
+      console.log(err)
+      return res.render("admin/import-students", {
+        error: "Algo de errado aconteceu."
+      })
+    }
+
+  },  
+  async reportsFund(req, res) {
+
+    try {
+      const { user } = req
+
+      const dataReport = await User.getQuantityFundamental()
+
+      let total = {
+        report: 'Ensino Fundamental',
+        name: 'TOTAL',
+        total_remote: 0,
+        total_hybrid: 0,
+        total_present: 0
+      }
+      
+      dataReport.forEach((element) => {
+        total.total_remote += element.total_remote
+        total.total_hybrid += element.total_hybrid
+        total.total_present += element.total_present
+      })
+
+      dataReport.push(total)
+
+      const dateNow = date(Date.parse(new Date())).formatTotal
+
+      return res.render("admin/reports-launchkit", { user, dateNow, dataReport })
+
+    
+    } catch (err) {
+      console.log(err)
+      return res.render("admin/import-students", {
+        error: "Algo de errado aconteceu."
+      })
+    }
+
+  },
+  async reportsEjaProeja(req, res) {
+
+    try {
+      const { user } = req
+
+      const dataReport = await User.getQuantityEjaProeja()
+
+      let total = {
+        report: 'EJA e PROEJA',
+        name: 'TOTAL',
+        total_remote: 0,
+        total_hybrid: 0,
+        total_present: 0
+      }
+      
+      dataReport.forEach((element) => {
+        total.total_remote += element.total_remote
+        total.total_hybrid += element.total_hybrid
+        total.total_present += element.total_present
+      })
+
+      dataReport.push(total)
+
+      const dateNow = date(Date.parse(new Date())).formatTotal
+
+      return res.render("admin/reports-launchkit", { user, dateNow, dataReport })
+
+      
+    } catch (err) {
+      console.log(err)
+      return res.render("admin/import-students", {
+        error: "Algo de errado aconteceu."
+      })
+    }
+
+  },
 }
 
 function loadUsersFile (file) {

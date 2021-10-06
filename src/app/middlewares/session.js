@@ -15,6 +15,8 @@ async function onlyUsersAdmin(req, res, next) {
     
     if(user && !user.role === 'admin')
         return res.redirect('/users')
+         
+    req.user = user
 
     next()
 }
