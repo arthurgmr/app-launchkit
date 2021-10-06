@@ -323,6 +323,45 @@ module.exports = {
     }
 
   },
+
+  // Report Diaper Size
+  async reportsDiapersSize(req, res) {
+    try {
+      
+      const { user } = req
+
+      const dataReport = await User.getQuantityDiaperSize()
+
+      let total = {
+        report: 'Tamanho de Fralda',
+        name: 'TOTAL',
+        total_M: 0,
+        total_G: 0,
+        total_GG: 0,
+        total_XXG: 0
+      }
+      
+      dataReport.forEach((element) => {
+        total.total_M += element.total_M
+        total.total_G += element.total_G
+        total.total_GG += element.total_GG
+        total.total_XXG += element.total_XXG
+      })
+
+      dataReport.push(total)
+
+      const dateNow = date(Date.parse(new Date())).formatTotal
+
+      return res.render("admin/reports-diapersize", { user, dateNow, dataReport })
+
+
+    } catch (err) {
+      console.log(err)
+      return res.render("admin/import-students", {
+        error: "Algo de errado aconteceu."
+      })
+    }
+  }
 }
 
 function loadUsersFile (file) {

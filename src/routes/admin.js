@@ -21,7 +21,9 @@ routes.post('/import/students', upload.single("file"), AdminController.importStu
 routes.get('/reports/infant', AdminController.reportsInfant)
 routes.get('/reports/fund', AdminController.reportsFund)
 routes.get('/reports/ejaproeja', AdminController.reportsEjaProeja)
-// routes.get('/reports', AdminController.reportsBySchools)
+
+//Reports Diaper
+routes.get('/reports/diapers-size', AdminController.reportsDiapersSize)
 
 
 module.exports = routes

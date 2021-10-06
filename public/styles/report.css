@@ -153,6 +153,17 @@ section .item table tr th {
     padding: 4px 0;
 }
 
+/* TABLE DIAPER SIZE REPORT */
+
+section .item .t-diaper tr th:nth-child(1) {
+    width: auto;
+}
+
+section .item .t-diaper tr th {
+    width: 70px;
+}
+/* ----------------- */
+
 section .item table tr:last-child td {
     border-bottom: none;
 }
