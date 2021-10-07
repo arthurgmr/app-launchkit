@@ -52,6 +52,7 @@ module.exports = {
 
         WHERE students_filter.regime = "Híbrido" OR students_filter.regime = "Remoto"
         AND students_filter.launchkit = "Sim"
+        ORDER BY students_filter.name
         `, [user_id, class_id ])
 
         return results
