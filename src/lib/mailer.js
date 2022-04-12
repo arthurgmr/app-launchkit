@@ -12,15 +12,3 @@ const transport = nodemailer.createTransport({
 });
 
   module.exports = transport
-
-
- 
-//    host: "mail.digiescola.com.br",
-//    port: 25,
-//    secure: false,
-//   auth: {
-//      user: "mail@digiescola.com.br",
-//      pass: "0s3xrL@9"
-//    },
-//    tls: { rejectUnauthorized: false }
- 
